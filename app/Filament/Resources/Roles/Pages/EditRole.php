@@ -15,9 +15,19 @@ class EditRole extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            DeleteAction::make(),
-            ForceDeleteAction::make(),
-            RestoreAction::make(),
+            // DeleteAction::make(),
+            // ForceDeleteAction::make(),
+            // RestoreAction::make(),
         ];
+    }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
+
+    protected function getSavedNotificationTitle(): ?string
+    {
+        return 'Role berhasil diperbarui';
     }
 }

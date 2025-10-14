@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\Roles\Pages;
+namespace App\Filament\Resources\Users\Pages;
 
-use App\Filament\Resources\Roles\RoleResource;
+use App\Filament\Resources\Users\UserResource;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreateRole extends CreateRecord
+class CreateUser extends CreateRecord
 {
-    protected static string $resource = RoleResource::class;
+    protected static string $resource = UserResource::class;
 
     protected function getRedirectUrl(): string
     {
@@ -18,7 +18,7 @@ class CreateRole extends CreateRecord
     protected function getCreatedNotification(): ?Notification
     {
         return Notification::make()
-            ->title('Role berhasil dibuat')
+            ->title('User berhasil dibuat')
             ->success()
             ->send();
     }
