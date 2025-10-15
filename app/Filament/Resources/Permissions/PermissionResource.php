@@ -26,6 +26,11 @@ class PermissionResource extends Resource
     protected static ?int $navigationSort = 3;
     protected static string|\UnitEnum|null $navigationGroup = 'Settings';
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()->hasRole('Admin');
+    }
+
     public static function form(Schema $schema): Schema
     {
         return PermissionForm::configure($schema);
