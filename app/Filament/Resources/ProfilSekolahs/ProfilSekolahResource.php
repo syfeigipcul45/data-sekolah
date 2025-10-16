@@ -17,7 +17,7 @@ class ProfilSekolahResource extends Resource
 {
     protected static ?string $model = ProfilSekolah::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::AcademicCap;
 
     protected static ?string $recordTitleAttribute = 'Profil Sekolah';
 
@@ -87,11 +87,11 @@ class ProfilSekolahResource extends Resource
             ->where('user_id', Auth::id());
     }
 
-    public static function getNavigationUrl(): string 
+    public static function getNavigationUrl(): string
     {
         $profileExists = static::getModel()::where('user_id', Auth::id())->exists();
-        
-        return $profileExists 
+
+        return $profileExists
             ? static::getUrl('edit', ['record' => static::getModel()::where('user_id', Auth::id())->first()->id])
             : static::getUrl('create');
     }
